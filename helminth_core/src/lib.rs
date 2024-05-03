@@ -1,10 +1,8 @@
-pub fn add(left: usize, right: usize) -> usize {
-    left + right
-}
+pub mod basebuf;
 
 #[cfg(test)]
 mod tests {
-    use super::*;
+    use super::basebuf::*;
 
     #[test]
     fn it_works() {
