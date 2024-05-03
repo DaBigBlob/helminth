@@ -1,3 +1,2 @@
-
-pub type basebuf = Vec<usize>;
+pub type basebuf_unit = usize;
 
