@@ -1,4 +1,9 @@
+pub mod queue;
+pub mod segment;
+pub mod protocol;
 pub mod basebuf;
+
+use easy_ext::ext;
 
 // #[cfg(test)]
 // mod tests {
@@ -10,3 +15,7 @@ pub mod basebuf;
 //         assert_eq!(result, 4);
 //     }
 // }
+
+pub fn a() {
+    // let m = basebuf::Basebuf
+}
