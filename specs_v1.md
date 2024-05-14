@@ -21,7 +21,7 @@
             {
                 destination: {
                     len: var_int,
-                    idx: <responder_pub_key_entrypted>[var_int]
+                    idxs: <responder_pub_key_entrypted>[var_int]
                 },
                 data: {
                     len: var_int,
@@ -43,9 +43,16 @@
 
 ## minimum payload
 ```txt
-version_byte
-
+version
+requester_index
+requester_priv_key_soln_to_challenge.len
+requester_priv_key_soln_to_challenge.{bytes} (3)
+number_of_segments
+destination.len
+destination.idxs (3)
+integrity.type
 ```
+TOTAL: 12 bytes
 
 ### var_int
 is either None, u8, u16, u32, u64, or u128  
