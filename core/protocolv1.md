@@ -1,7 +1,0 @@
-version
-destination_type
-destination
-payload_size
-payload
-integrity
-padding
