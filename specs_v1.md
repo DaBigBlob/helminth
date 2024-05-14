@@ -8,25 +8,24 @@
 ```json
 {
     version: var_int,
-    ident<responder_pub_key_entrypted>: {
-        requester_index: var_int
+    ident: {
+        requester_index: var_int,
         requester_priv_key_soln_to_challenge: {
-            len: var_int
-            [bytes]
+            len: var_int,
+            <responder_pub_key_entrypted>[bytes]
         }
     },
-    body_len: var_int,
-    body<responder_pub_key_entrypted>: {
+    body: {
         number_of_segments: var_int,
         segments: [
             {
                 destination: {
                     len: var_int,
-                    idx: [var_int]
+                    idx: <responder_pub_key_entrypted>[var_int]
                 },
                 data: {
                     len: var_int,
-                    [bytes]
+                    <responder_pub_key_entrypted>[bytes]
                 }
             },
             .
@@ -36,19 +35,23 @@
     }
     integrity: {
         type: var_int,
+        len: var_int,
         [bytes]
     }
 }
 ```
 
 ## minimum payload
+```txt
+version_byte
 
+```
 
 ### var_int
 is either None, u8, u16, u32, u64, or u128  
 represented by first 3 bits
 following are T values:
-- 000 -> None i.e. does not exist. Effectively means 0. Rest of the byte is ignored.
+- 000 -> None i.e. does not exist. Rest of the byte is ignored.
 - 001 -> u8 -> 2^(8-3) = 2^5 = 32 states
 - 010 -> u16 -> 2^(16-3) = 2^13 = 8,192 states
 - 011 -> u32 -> 2^(32-3) = 2^29 = 536,870,912 states
