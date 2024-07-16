@@ -2,6 +2,9 @@
 
 ## overview of handshake
 > reqester <--> responder
+hello ->
+<- hello_challenge
+
 
 
 ## overview of payload
@@ -9,11 +12,9 @@
 {
     version: var_int,
     ident: {
+        len: var_int,
         requester_index: var_int,
-        requester_priv_key_soln_to_challenge: {
-            len: var_int,
-            <responder_pub_key_entrypted>[bytes]
-        }
+        requester_priv_key_soln_to_challenge<responder_pub_key_entrypted>: [bytes + {body_ecryption_bool_byte}]
     },
     body: {
         number_of_segments: var_int,

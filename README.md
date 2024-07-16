@@ -1,2 +1,2 @@
 # helminth
-Low previledge encryption and resilience. 
+duplex serial data mutation and transport
